@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Classificação de estrelas</title>
+    <style>
+        .checked {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Classificação de estrelas</h2>
+
+<div id="stars">
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+</div>
+
+<script>
+    var stars = document.getElementById("stars").children;
+    for (var i = 0; i < stars.length; i++) {
+        stars[i].addEventListener("click", function() {
+            for (var j = 0; j < stars.length; j++) {
+                if (j <= parseInt(this.getAttribute("data-index"))) {
+                    stars[j].classList.add("checked");
+                } else {
+                    stars[j].classList.remove("checked");
+                }
+            }
+        });
+        stars[i].setAttribute("data-index", i);
+    }
+</script>
+
+</body>
+</html>
